@@ -1,9 +1,13 @@
-<h1>Chat@</h1>
-<p>Welcome to Chat@ world!</p>
-<% if current_user %>
-  <%= link_to "Start Chatting", rooms_path %>
-  <%= button_to "Logout", destroy_user_session_path, method: :delete %>
-<% else %>
-  <%= link_to "Login", new_user_session_path %>
-  <%= link_to "Sign Up", new_user_registration_path %>
-<% end %>
+<div id="home_page">
+    <% if current_user %>
+    <h5> Welcome, <%= current_user.email %> </h5>
+    <p><%=Room.public_rooms.count(:all)%> Public room(s) available </p>
+    <p>Total User(s): <%= User.count(:all) %></p>
+    <%= link_to "See Rooms", rooms_path %>
+    <%= button_to "Log out", destroy_user_session_path, method: :delete %>
+    <% else %>
+    <p>Welcome to Chat@ world!</p>
+    <%= link_to "Login", new_user_session_path %>
+    <%= link_to "Sign Up", new_user_registration_path %>
+  <% end %>
+</div>
