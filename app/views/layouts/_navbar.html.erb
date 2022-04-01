@@ -11,11 +11,13 @@
       <li class="nav-item">
         <a class="nav-link" href="/rooms">Rooms</a>
       </li>
+      <% if !current_user %>
       <li class="nav-item">
         <a class="nav-link" href="/users/sign_up">Sign Up</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/users/sign_in">Sign In</a>
+        <a class="nav-link" href="/users/sign_in">Log In</a>
+      <% end %>
       </li>
     </ul>
   </div>
